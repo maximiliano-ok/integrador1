@@ -4,10 +4,11 @@ const countries = require('./countries.json');
  * For example: given the isoCode 'ARG'
  * The response should be: 'Argentina'
  * @param  {array} isoCode
- * @returns {array}
+ * @returns {string}
  */
 function getCountryNameByIso3(isoCode){
-    //complete with your code
+    const country = countries.find(country => country.iso3 === isoCode);
+    return country.name ;
 }
 
 /**
@@ -28,17 +29,19 @@ function getCountryNameByIso3(isoCode){
  * @returns {Object}
  */
 function getCountrySummary(isoCode){
-    //complete with your code
+    const country = countries.find(country => country.iso3 === isoCode);
+    return (country.name+' #'+country.iso3+' #'+country.iso2+' # '+country.phone_code+' # '+country.capital+' # '+country.currency+' # '+country.tld+' # '+country.region+' # '+country.emoji);
+
 }
 
 function main() {
     console.log(
         '///// Ejercicio 1 /////\n',
-        getCountryNameByIso3('ARG'),
+        getCountryNameByIso3('AFG'),
         '\n');
     console.log(
         '///// Ejercicio 2 /////\n',
-        getCountrySummary('ARG'),
+        getCountrySummary('AFG'),
         '\n');
 
 }
